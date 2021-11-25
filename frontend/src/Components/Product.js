@@ -1,7 +1,10 @@
 import React from 'react'
 import Rating from './Rating';
+import { Link } from 'react-router-dom';
+
 const Product = ({product}) => {
-    const {_id,
+    const {
+        _id,
         name,
         category,
         image,
@@ -10,11 +13,15 @@ const Product = ({product}) => {
         brand,
         rating,
         numReviews,
-        description } = product;
-    return (
+        description 
     
+    } = product;
+
+       
+    return (
+            <Link to={`/ProductScreen/${_id}`}>
              <div Key={_id} className="card">
-                                <a href="product.html">
+                                <a>
 
                                     <img className="medium" src={image} alt={name} />
                                 </a>
@@ -28,6 +35,7 @@ const Product = ({product}) => {
                                  
                                  <div className="price">Price: ${price}</div>
                   </div>
+            </Link>
     
     )
 }

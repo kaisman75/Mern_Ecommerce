@@ -1,26 +1,29 @@
 import React from 'react'
-import data from "../data"
-import Product from './Product';
+import HomeScreen from './Screens/HomeScreen';
+import ProductScreen from './Screens/ProductScreen';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link,
+    
+  } from "react-router-dom";
+  
 
 const Main = () => {
-    const Products = data.products;
+   
     return (
-        <main>
-            <div>
-                <div className="row center">
-                    {
-                    Products.map((product) => {
-                       
-                        return (
-                           <Product product={product}></Product>
-                
-           ) })}
-
-                </div>
-            </div>
+        <Router>
+       
+        <Routes>
+            <Route exact path="/" element={<HomeScreen/>} ></Route>
+            <Route exact path="ProductScreen/:id" element={<ProductScreen/>}></Route>
+        </Routes>
+      
+        </Router>
 
 
-        </main>
+       
     )
 }
 
