@@ -26,11 +26,11 @@ const ProductScreen = () => {
     } = product;
     return (
         <div className="row top">
-           <div className="col-2">
+           <div className="col-1">
                <img src={image} alt={name} />
 
            </div>
-           <div className="col-1">
+           <div className="col-2">
                <h1>{name}</h1>
                <li>{brand}</li>
               <li>{category}</li> 
@@ -40,8 +40,26 @@ const ProductScreen = () => {
                <li>{description}</li>
             
            </div>
-           <div className="col-1">
-            
+           <div className="col-3">
+            <div className="card card-body">
+                <ul>
+                    <li>
+                        <div className="row top">
+                            <div>Price :</div>
+                            <div className="price">$ {price}</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="row">
+                            <div>status :</div>
+                            <div>{countInStock>0?<span className="success">InStock</span>:<span className="danger">Unvalable</span>}</div>
+                        </div>
+                    </li>
+                    <li>
+                        <button className="primary block">Add To Card</button>
+                    </li>
+                </ul>
+            </div>
            </div>
         </div>
     )

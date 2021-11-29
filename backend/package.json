@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch backend --exec node --experimental-modules /server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaisman75/Mern_Ecommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaisman75/Mern_Ecommerce/issues"
+  },
+  "homepage": "https://github.com/kaisman75/Mern_Ecommerce#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  }
+}
