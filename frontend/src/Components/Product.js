@@ -20,7 +20,7 @@ const Product = ({product}) => {
        
     return (
             <Link to={`/ProductScreen/${_id}`}>
-             <div Key={_id} className="card">
+             <div key={_id} className="card">
                                 <a>
 
                                     <img className="medium" src={image} alt={name} />
