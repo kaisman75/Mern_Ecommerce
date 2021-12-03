@@ -1,45 +1,28 @@
-import React, { useState ,useEffect} from 'react'
+import React, {useEffect} from 'react'
 import Product from '../Product';
-import axios from "axios";
 import MessageBox from '../MessageBox';
 import LoadingBox from '../LoadingBox';
-
-
+import { useDispatch,useSelector } from 'react-redux';
+import { Products_List } from '../ReduxComponent/reduxActions';
 
 const HomeScreen = () => {
-    const[products,setProducts] = useState([]);
-    const [loading ,setLoading]=useState(false);
-    const[error,setError]=useState(false)
+   
+  
+    const dispatch=useDispatch();
+   
     useEffect(()=>{
-        
-        const fetchData= async ()=>{
-            
-            try{
-             setLoading(true)
-             const { data }= await axios.get('/api/products');
-             setLoading(false)
-             setProducts(data)
-             }
-             catch(err){
-                    setError(err.message)
-                    console.log(err.message)
-                    setLoading(false)
-             }
-        }
-        
-        fetchData(); 
-        
-
+     dispatch(Products_List()) 
     }, [])
- 
+  const Products= useSelector(state => state.Products_List);
+  const{error,loading,Product}=Products;
     return (
         
              <div>
-                 {loading?<LoadingBox></LoadingBox>:error?(<MessageBox>{error}</MessageBox>):(
+                 {loading?<LoadingBox></LoadingBox>:error?(<MessageBox variant="danger">{error}</MessageBox>):(
 
                      <div className="row center">
                     {
-                    products.map((product) => {
+                    Products.map((product) => {
                        
                         return (
                             
