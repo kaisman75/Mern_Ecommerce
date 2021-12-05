@@ -219,7 +219,10 @@ aside li {
 button.close-sidebar {
   padding: 0.3rem 0.8rem;
 }
-
+.productContainer{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
 /* Image */
 img {
   border-radius: 0.5rem;

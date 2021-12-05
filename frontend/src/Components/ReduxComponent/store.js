@@ -2,18 +2,17 @@
 
  import { configureStore } from '@reduxjs/toolkit';
 import { PRODUCTS_LIST_FAIL, PRODUCTS_LIST_REQUEST, PRODUCTS_LIST_SUCCES } from "./Constante";
-import { Products_List } from './reduxActions';
 import { combineReducers } from 'redux';
 
 
 
 
- const  prodReducer =(state={},action)=>{
+ const  prodReducer =(state={products:[]},action)=>{
   switch(action.type){
      case PRODUCTS_LIST_REQUEST:
      return{loading:true};
      case PRODUCTS_LIST_SUCCES:
-        return {loading:false,Products:action.payload};
+        return {loading:false,products:action.payload};
      case PRODUCTS_LIST_FAIL:
         return{loading:false,error:action.payload} ;
      default:
@@ -21,7 +20,7 @@ import { combineReducers } from 'redux';
   }
  }
  const reducer=combineReducers({
- Products_List : prodReducer
+ productsList : prodReducer,
  })   
  const store=configureStore({reducer});
 

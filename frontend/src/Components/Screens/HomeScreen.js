@@ -10,11 +10,13 @@ const HomeScreen = () => {
   
     const dispatch=useDispatch();
    
-    useEffect(()=>{
-     dispatch(Products_List()) 
-    }, [])
-  const Products= useSelector(state => state.Products_List);
-  const{error,loading,Product}=Products;
+   
+  const productsList= useSelector(state => state.productsList);
+  const{error,loading,products}=productsList;
+
+  useEffect(()=>{
+    dispatch(Products_List) 
+   }, [])
     return (
         
              <div>
@@ -22,7 +24,7 @@ const HomeScreen = () => {
 
                      <div className="row center">
                     {
-                    Products.map((product) => {
+                    products.map((product) => {
                        
                         return (
                             
