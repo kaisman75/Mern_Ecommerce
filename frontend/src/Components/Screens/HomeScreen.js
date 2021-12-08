@@ -5,16 +5,20 @@ import LoadingBox from '../LoadingBox';
 import { useDispatch,useSelector } from 'react-redux';
 import { Products_List } from '../ReduxComponent/reduxActions';
 
+
 const HomeScreen = () => {
    
-  
-    const dispatch=useDispatch();
+   const productsList= useSelector(state => state.ProductsList);
+   const{error,loading,products}=productsList;
+    
+  const dispatch=useDispatch();
    
     useEffect(()=>{
-     dispatch(Products_List()) 
-    }, [])
-  const Products= useSelector(state => state.Products_List);
-  const{error,loading,Product}=Products;
+     dispatch(Products_List) 
+    },[]);
+
+
+ 
     return (
         
              <div>
@@ -22,7 +26,7 @@ const HomeScreen = () => {
 
                      <div className="row center">
                     {
-                    Products.map((product) => {
+                   products.map((product) => {
                        
                         return (
                             
