@@ -1,6 +1,6 @@
 import React from 'react'
 import HomeScreen from './Screens/HomeScreen';
-import ProductScreen from './Screens/ProductScreen';
+import Product from './Screens/ProductScreen';
 import {
     BrowserRouter as Router,
     Routes,
@@ -17,7 +17,7 @@ const Main = () => {
        
         <Routes>
             <Route exact path="/" element={<HomeScreen/>} ></Route>
-            <Route exact path="ProductScreen/:id" element={<ProductScreen/>}></Route>
+            <Route exact path="Product/:productId" element={<Product/>}></Route>
         </Routes>
       
         </Router>

@@ -19,7 +19,7 @@ const Product = ({product}) => {
 
        
     return (
-            <Link to={`/ProductScreen/${_id}`}>
+            <Link to={`/Product/${_id}`}>
              <div key={_id} className="card">
                                 <a>
 

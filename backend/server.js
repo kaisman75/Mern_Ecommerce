@@ -19,8 +19,8 @@ app.get("/",(req,res)=>res.status(200).send("server is ready"))
 app.get('/api/products',(req,res)=>{
     res.send(data.products)
 })
-app.get('/api/products/:id',(req,res)=>{
-    const product = data.products.find(x=>x._id===req.params.id);
+app.get('/api/product/:ProductId',(req,res)=>{
+    const product = data.products.find(x=>x._id===req.params.ProductId);
     if(product){
         res.send(product)
      

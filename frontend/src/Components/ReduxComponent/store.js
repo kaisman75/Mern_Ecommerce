@@ -32,15 +32,17 @@ import { combineReducers } from 'redux';
      case PRODUCT_DETAILS_SUCCES:
         return {loading:false,product:action.payload};
      case PRODUCT_DETAILS_FAIL:
-        return{loading:false,error:action.payload} ;
+        return{loading:false , error:action.payload} ;
      default:
         return state     
   }
  }
  const reducer=combineReducers({
    ProductsList:prodListReducer ,
-   ProductDetails: prodDetailsReducer
-  })   
+    ProductDetails: prodDetailsReducer,
+ })  
+ 
+
  const store=configureStore({reducer});
 
  export default store;
