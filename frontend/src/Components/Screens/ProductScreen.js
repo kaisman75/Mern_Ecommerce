@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "../Rating";
 import { Product_DETAILS } from "../ReduxComponent/reduxActions";
@@ -8,14 +8,17 @@ import { Link,useParams } from "react-router-dom";
 
 export default function Product(props) {
     const params = useParams();
-    const {productId} = params;
+    const { id:productId } = params;
 
   const dispatch = useDispatch();
   const detailsProduct = useSelector((state) => state.ProductDetails);
   const { loading, error, product } = detailsProduct;
+  const [qty,setQty]=useState(1);
   useEffect(() => {
     dispatch(Product_DETAILS(productId));
   }, [dispatch,productId]);
+
+  
 
   if (!product) {
     return <div>Product Not Found</div>;
@@ -32,6 +35,11 @@ export default function Product(props) {
     numReviews,
     description,
   } = product;
+
+const addCardHandler=()=>{
+   props.history.push(`/cart/${productId}?qty=qty`);
+  }
+
   return (
     <div>
       {loading ? (
@@ -66,17 +74,31 @@ export default function Product(props) {
                   <li>
                     <div className="row">
                       <div>status :</div>
-                      <div>
+                     
                         {countInStock > 0 ? (
+                          <> 
+                          <div>
                           <span className="success">InStock</span>
+                          </div>
+                          <div className="row">
+                            <div>Qty : </div>
+                            <div>
+                                <select value={qty} onChange={(e=>{setQty(e.target.value)})}>
+                                  {[...Array(product.countInStock).keys()].map(e=>
+                                    <option key= {e+1} value={e+1}>{e+1}</option>
+                                  )}
+                                </select>
+                                </div> 
+                          </div>
+                          </>
                         ) : (
-                          <span className="danger">Unvalable</span>
+                          <span className="danger">Stock Out</span>
                         )}
                       </div>
-                    </div>
+                    
                   </li>
                   <li>
-                    <button className="primary block">Add To Card</button>
+                    <button className="primary block" onChangeCapture={addCardHandler}>Add To Card</button>
                   </li>
                 </ul>
               </div>

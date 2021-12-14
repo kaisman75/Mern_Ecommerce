@@ -22,10 +22,10 @@ import {
      }
 
 
-     export const Product_DETAILS =  (productId) => async (dispatch) => {
-        dispatch({ type: PRODUCT_DETAILS_REQUEST, payload:productId});
+     export const Product_DETAILS =  ( productId ) => async (dispatch) => {
+        dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId });
         try {
-          const { data } = await Axios.get(`/api/product/${productId}`);
+          const { data } = await Axios.get(`/api/products/${productId}`);
           dispatch({ type: PRODUCT_DETAILS_SUCCES, payload: data });
         } catch (error) {
           dispatch({
