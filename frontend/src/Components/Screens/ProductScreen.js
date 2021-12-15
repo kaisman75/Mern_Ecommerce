@@ -4,12 +4,13 @@ import Rating from "../Rating";
 import { Product_DETAILS } from "../ReduxComponent/reduxActions";
 import LoadingBox from "../LoadingBox";
 import MessageBox from "../MessageBox";
-import { Link,useParams } from "react-router-dom";
+import { Link,useNavigate,useParams } from "react-router-dom";
 
-export default function Product(props) {
+export default function Product() {
     const params = useParams();
+    const Navigate=useNavigate()
     const { id:productId } = params;
-
+ 
   const dispatch = useDispatch();
   const detailsProduct = useSelector((state) => state.ProductDetails);
   const { loading, error, product } = detailsProduct;
@@ -37,7 +38,7 @@ export default function Product(props) {
   } = product;
 
 const addCardHandler=()=>{
-   props.history.push(`/cart/${productId}?qty=qty`);
+   Navigate(`/cart/${productId}?qty=${qty}`);
   }
 
   return (
@@ -98,7 +99,7 @@ const addCardHandler=()=>{
                     
                   </li>
                   <li>
-                    <button className="primary block" onChangeCapture={addCardHandler}>Add To Card</button>
+                    <button className="primary block" onClick={addCardHandler}>Add To Card</button>
                   </li>
                 </ul>
               </div>
