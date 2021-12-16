@@ -12,7 +12,7 @@ export default function Product() {
     const { id:productId } = params;
  
   const dispatch = useDispatch();
-  const detailsProduct = useSelector((state) => state.ProductDetails);
+  const detailsProduct = useSelector((state) => state.Product_DETAILS);
   const { loading, error, product } = detailsProduct;
   const [qty,setQty]=useState(1);
   useEffect(() => {
@@ -99,7 +99,7 @@ const addCardHandler=()=>{
                     
                   </li>
                   <li>
-                    <button className="primary block" onClick={addCardHandler}>Add To Card</button>
+                    <button className="button primary block" onClick={addCardHandler}>Add To Card</button>
                   </li>
                 </ul>
               </div>

@@ -8,7 +8,7 @@ import { Products_List } from '../ReduxComponent/reduxActions';
 
 const HomeScreen = () => {
    
-   const productsList= useSelector(state => state.ProductsList);
+   const productsList= useSelector(state => state.Products_List);
    const{error,loading,products}=productsList;
     
   const dispatch=useDispatch();
