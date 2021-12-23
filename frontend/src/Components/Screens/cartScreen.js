@@ -10,7 +10,7 @@ import  { Add_to_CART } from '../ReduxComponent/reduxActions'
     const qtyInUrl = new URLSearchParams(search).get('qty');
     const qty = qtyInUrl ? Number(qtyInUrl) : 1;
     useEffect(() => {
-        dispatch(Add_to_CART(productId,qty))
+          dispatch(Add_to_CART(productId,qty))
       }, [dispatch,productId,qty])
     return (
         

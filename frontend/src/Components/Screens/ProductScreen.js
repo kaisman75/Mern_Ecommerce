@@ -6,6 +6,7 @@ import LoadingBox from "../LoadingBox";
 import MessageBox from "../MessageBox";
 import { Link,useNavigate,useParams } from "react-router-dom";
 
+
 export default function Product() {
     const params = useParams();
     const Navigate=useNavigate()
@@ -39,6 +40,7 @@ export default function Product() {
 
 const addCardHandler=()=>{
    Navigate(`/cart/${productId}?qty=${qty}`);
+  
   }
 
   return (

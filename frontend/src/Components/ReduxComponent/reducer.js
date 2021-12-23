@@ -7,13 +7,15 @@ import {
     PRODUCT_DETAILS_FAIL ,
     ADD_CART_ITEM
 } from "./Constante";
-    import { Products_List,Product_DETAILS,Add_to_CART } from './reduxActions';
+    
 
-    import { combineReducers } from 'redux';
+  
 
+    
+ 
+   
 
-
-     const  prodListReducer =(state={products:[]},action)=>{
+     export const  prodListReducer =(state={products:[]},action)=>{
         switch(action.type){
           case PRODUCTS_LIST_REQUEST:
           return{loading:true};
@@ -25,7 +27,7 @@ import {
              return state     
        }
       }
-     const  prodDetailsReducer =(state={product:{}},action)=>{
+     export const  prodDetailsReducer =(state={product:{}},action)=>{
         switch(action.type){
           case PRODUCT_DETAILS_REQUEST:
           return{loading:true};
@@ -38,7 +40,8 @@ import {
        }
       }
 
-      const CartReducer=(state={cartItems:[]},action)=>{
+     
+      export const CartReducer=(state={cartItems:[]},action)=>{
           switch(action.type){
               case ADD_CART_ITEM:
                   const item=action.payload;
@@ -54,8 +57,4 @@ import {
                   return state;    
           }
       }
-     export const reducer=combineReducers({
-       Products_List : prodListReducer,
-       Product_DETAILS: prodDetailsReducer,
-       Add_to_CART:CartReducer
-     })  
+   

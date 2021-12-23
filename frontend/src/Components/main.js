@@ -14,7 +14,7 @@ import {
 const Main = () => {
    
     return (
-        <Router>
+     
        
         <Routes>
             <Route exact path="/" element = { <HomeScreen/> } ></Route>
@@ -22,7 +22,7 @@ const Main = () => {
             <Route exact path="/cart/:id" element = { <CartScreen/>} ></Route>
         </Routes>
       
-        </Router>
+       
 
 
        

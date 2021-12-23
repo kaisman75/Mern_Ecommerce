@@ -45,8 +45,9 @@ export const Add_to_CART =(productId , qty )=>async(dispatch,getState)=>{
       image:data.image,
       price:data.price,
       countInStock:data.countInStock,
-      qty
+      qty,
+      
     }
     })
-      
+     localStorage.setItem('cartItems',JSON.stringify(getState().cartItems))
      } ;
